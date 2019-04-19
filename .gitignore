@@ -3,7 +3,7 @@ node_modules
 /dist
 /csv
 /ryf-es6
-/suto-test
+/auto-test
 
 
 # local env files
