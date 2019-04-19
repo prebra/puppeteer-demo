@@ -6,7 +6,7 @@ const mkdirp = require('mkdirp');
 const saveDir = path.join(__dirname, '../ryf-es6');
 const url = 'http://es6.ruanyifeng.com/';
 
-async function pdf() {
+(async () => {
   try {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -61,6 +61,4 @@ async function pdf() {
   } catch(e) {
     console.error(e);
   }
-};
-
-module.exports = pdf;
+})();

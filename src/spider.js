@@ -18,7 +18,7 @@ function checkSaveDir() {
   }
 }
 
-async function spiderInit() {
+(async () => {
   try {
     const browser = await puppeteer.launch();
     const skuLinks = await getSkuLinks(browser);
@@ -28,9 +28,10 @@ async function spiderInit() {
   } catch(err) {
     console.log(error(err));
   }
-}
+})();
 
 async function getSkuLinks(browser) {
+  console.log('开始收集商品链接。。。。');
   try {
     const page = await browser.newPage();
     page.setViewport({ width: 1200, height: 3000 });
@@ -41,6 +42,7 @@ async function getSkuLinks(browser) {
       let list = Array.from(document.querySelectorAll(selector));
       return list.map(i => i.href);
     }, '.shopee-search-item-result__item a');
+    console.log(success(`收集到${skuLinks.length}条商品链接。。。。`));
     return skuLinks;
   } catch(err) {
     console.log(error('获取sku链接失败', err));
@@ -107,4 +109,3 @@ function saveCsv(fileName, content) {
   ]);
   fs.writeFileSync(fileName, msExcelBuffer);
 }
-module.exports = spiderInit;

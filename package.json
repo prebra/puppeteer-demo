@@ -2,6 +2,11 @@
   "name": "puppeteer",
   "version": "1.0.0",
   "description": "",
+  "scripts": {
+    "pfd": "node ./src/pfd.js",
+    "spider": "node ./src/spider.js",
+    "test": "mocha -t 30000 ./src/autotest.js"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "chalk": "^2.4.2",
@@ -9,10 +14,13 @@
     "json2csv": "^4.4.1",
     "puppeteer": "^1.14.0"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
   },
   "author": "zhy",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": ">= 7.6.0"
+  }
 }
