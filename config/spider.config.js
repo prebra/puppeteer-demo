@@ -1,5 +1,5 @@
 module.exports = {
-  url: 'https://shopee.tw/search?keyword=%E9%9E%8B%E5%AD%90',
+  url: 'https://shopee.tw/%E7%BE%8E%E5%A6%9D%E4%BF%9D%E5%81%A5-cat.67',
   fields: [
     { value: 'brand', label: '品牌' },
     { value: 'sku_id', label: 'SKU ID' },

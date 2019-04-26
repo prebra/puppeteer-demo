@@ -5,7 +5,8 @@
   "scripts": {
     "pfd": "node ./src/pfd.js",
     "spider": "node ./src/spider.js",
-    "test": "mocha -t 30000 ./src/autotest.js"
+    "test": "mocha -t 30000 ./src/autotest.js",
+    "search": "node ./src/search.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

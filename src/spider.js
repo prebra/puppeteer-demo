@@ -51,7 +51,7 @@ async function getSkuLinks(browser) {
 
 async function getSukInfo(browser, skuLinks) {
   let skuInfos = [];
-  for(link of skuLinks.slice(0, 2)) {
+  for(link of skuLinks.slice(0, 5)) {
     console.log(`开始获取${decodeURIComponent(link)}数据`);
     let skuInfo = {};
 
@@ -64,8 +64,9 @@ async function getSukInfo(browser, skuLinks) {
         else
           interceptedRequest.continue();
       });
-      await page.goto(link, { waitUntil: 'networkidle2' });
-      await page.waitForSelector('.page-product__content');
+      await page.goto(link, { waitUntil: 'networkidle2', timeout: 50000 });
+      await page.waitForSelector('.page-product__content', { timeout: 50000 });
+
 
       let html = await page.content();
       const $ = cheerio.load(html);
